@@ -1,0 +1,90 @@
+# =========================
+
+# CakePHP
+
+# =========================
+
+# Configuración sensible (NO subir)
+
+config/app_local.php
+config/.env
+
+# Logs y temporales
+
+logs/*
+tmp/*
+!logs/.gitkeep
+!tmp/.gitkeep
+
+# Dependencias (Composer)
+
+vendor/
+
+# =========================
+
+# Testing
+
+# =========================
+
+.phpunit.cache
+tests.sqlite
+
+# =========================
+
+# Node / frontend
+
+# =========================
+
+node_modules/
+yarn-debug.log*
+yarn-error.log*
+npm-debug.log*
+
+# =========================
+
+# Archivos del sistema (OS)
+
+# =========================
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.directory
+
+# =========================
+
+# IDEs / Editores
+
+# =========================
+
+.vscode/
+.idea/
+nbproject/
+.settings/
+.nova/
+
+# =========================
+
+# Temporales
+
+# =========================
+
+*~
+*.swp
+*.swo
+
+# =========================
+
+# Sass / cache
+
+# =========================
+
+.sass-cache/
+
+# =========================
+
+# Logs extra
+
+# =========================
+
+*.log
