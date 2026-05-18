@@ -14,7 +14,3 @@ nixPkgs = [
 cmds = [
   "composer install --ignore-platform-req=ext-intl --optimize-autoloader --no-interaction"
 ]
-
-[start]
-[start]
-cmd = "sh -c 'php -S 0.0.0.0:${PORT} -t webroot'"
