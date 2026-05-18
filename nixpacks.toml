@@ -16,4 +16,5 @@ cmds = [
 ]
 
 [start]
-cmd = ¨["php -S, 0.0.0.0:$PORT -t webroot"]
+[start]
+cmd = "sh -c 'php -S 0.0.0.0:${PORT} -t webroot'"
