@@ -17,7 +17,8 @@ cmds = [
 [phases.build]
 cmds = [
   "mkdir -p tmp/cache/models tmp/cache/persistent tmp/cache/views tmp/sessions logs",
-  "chmod -R 775 tmp logs"
+  "chmod -R 775 tmp logs",
+  "chmod +x bin/cake bin/cake.php"
 ]
 
 [deploy]
