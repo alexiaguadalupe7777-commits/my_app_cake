@@ -14,3 +14,11 @@ nixPkgs = [
 cmds = [
   "composer install --ignore-platform-req=ext-intl --optimize-autoloader --no-interaction"
 ]
+[phases.build]
+cmds = [
+  "mkdir -p tmp/cache/models tmp/cache/persistent tmp/cache/views tmp/sessions logs",
+  "chmod -R 775 tmp logs"
+]
+
+[deploy]
+startCommand = "sh -c 'php bin/cake.php server -H 0.0.0.0 -p ${PORT:-8080}'"
