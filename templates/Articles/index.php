@@ -4,12 +4,12 @@
     <article>
         <h2>
             <?= $this->Html->link(
-                h($articles->Title),
+                h($article->title),
                 ['action' => 'view', $article->slug]
             ) ?>
         </h2>
         <p>
-            <small>Published: <?= $article->created->format('F d, Y') ?:'Sin Fecha' ?></small>
+            <small>Published: <?= $article->created->format('F d, Y') ?></small>
         </p>
         <p><?= h($article->body) ?></p>
     </article>
