@@ -2,17 +2,6 @@
 
 <?php foreach ($articles as $article): ?>
     <article>
-        <h2>
-            <?= $this->Html->link(
-                h($articles->title),
-                ['action' => 'view', $articles->slug]
-            ) ?>
-        </h2>
-        <p>
-            <small>Published: <?= $articles->created->format('F d, Y') ?></small>
-        </p>
-        <p><?= h($article->body) ?></p>
+        <h2><?= var_dump($article->toArray()) ?></h2>
     </article>
 <?php endforeach; ?>
-
-<?= $this->Html->link('New Article', ['action' => 'add'], ['class' => 'button']) ?>
