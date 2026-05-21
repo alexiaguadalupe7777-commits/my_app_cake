@@ -4,8 +4,8 @@
     <article>
         <h2>
             <?= $this->Html->link(
-                h($article->title),
-                ['action' => 'view', $article->slug]
+                h($articles->title),
+                ['action' => 'view', $articles->slug]
             ) ?>
         </h2>
         <p>
