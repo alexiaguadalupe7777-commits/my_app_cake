@@ -17,9 +17,9 @@ class ArticlesController extends AppController
      */
     public function index()
     {
+        \Cake\Cache\Cache::clear('_cake_model_');
         $query = $this->Articles->find();
         $articles = $this->paginate($query);
-
         $this->set(compact('articles'));
     }
 
