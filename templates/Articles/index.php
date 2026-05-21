@@ -9,7 +9,7 @@
             ) ?>
         </h2>
         <p>
-            <small>Published: <?= $article->created->format('F d, Y') ?></small>
+            <small>Published: <?= $articles->created->format('F d, Y') ?></small>
         </p>
         <p><?= h($article->body) ?></p>
     </article>
