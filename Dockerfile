@@ -1,24 +1,24 @@
-FROM dunglas/frankenphp
+FROM php:8.2-cli
 
 RUN apt-get update && apt-get install -y \
-    git \
+    libicu-dev \
+    libzip-dev \
     unzip \
-   zip
+    zip \
+    git
 
-RUN install-php-extensions   \
-    intl \
-    pdo_mysql \
-    mbstring \
-    zip
+RUN docker-php-ext-configure intl 
 
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN docker-php-ext-install intl pdo pdo_mysql
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
 
-COPY . /app
+COPY . .
 
-RUN composer install --no-interaction --prefer-dist 
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
-EXPOSE 80
+RUN composer install --optimize-autoloader --no-interaction
 
-CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]
+CMD php -S 0.0.0:$PORT -t webroot
