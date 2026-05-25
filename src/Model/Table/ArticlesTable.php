@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace App\Model\Table;
 
 use Cake\ORM\Table;
+use Cake\Event\EventInterface;
+use ArrayObject;
 
 class ArticlesTable extends Table
 {
@@ -16,9 +18,12 @@ class ArticlesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-        $this->addBehavior('Sluggable', [
-            'field' => 'title',
-            'slug' => 'slug',
-        ]);
+    }
+
+    public function beforeSave(EventInterface $event, $entity, ArrayObject $options): void
+    {
+        if ($entity->isNew() && !empty($entity->title)) {
+            $entity->slug = strtolower(str_replace(' ', '-', $entity->title));
+        }
     }
 }
