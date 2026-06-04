@@ -51,10 +51,7 @@ class ArticlesController extends AppController
         if ($this->Articles->save($article)) {
             $this->Flash->success(__('The article has been saved.'));
 
-            return $this->redirect([
-                'controller' => 'Articles',
-                'action' => 'index',
-            ]);
+            return $this->redirect(['action' => 'index']);
         }
 
         $this->Flash->error(__('The article could not be saved. Please, try again.'));
