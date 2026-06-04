@@ -41,7 +41,7 @@ class ArticlesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+  public function add()
 {
     $article = $this->Articles->newEmptyEntity();
 
@@ -49,11 +49,15 @@ class ArticlesController extends AppController
         $article = $this->Articles->patchEntity($article, $this->request->getData());
 
         if ($this->Articles->save($article)) {
-            die('GUARDO CORRECTAMENTE');
+            $this->Flash->success(__('The article has been saved.'));
+
+            return $this->redirect([
+                'controller' => 'Articles',
+                'action' => 'index',
+            ]);
         }
 
-        debug($article->getErrors());
-        die('NO GUARDO');
+        $this->Flash->error(__('The article could not be saved. Please, try again.'));
     }
 
     $this->set(compact('article'));
